@@ -1,0 +1,42 @@
+1. 词的缩写问题 like LSTM is short for Long short-term memory
+2. key word's 的单数 复数问题
+3. what's the difference between tokenization and parsing
+
+
+23/01/2020
+1. use "for" loop  unless I don't know how many times gonna loop
+so I replace "while" loop by "for"
+
+2.  the "NLTK download SSL: Certificate verify failed " issue :
+Python 3.8 on MacOS uses an embedded version of OpenSSL, which does not use
+the system certificate store.Detail is here: bugs.python.org/issue28150
+
+by running the following code in terminal:
+-------------------------------------------------------------------------
+import nltk
+import ssl
+
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
+--------------------------------------------------------------------------
+
+then run :
+---------------------------------------------------------------------------
+nltk.download()
+---------------------------------------------------------------------------
+downloda directory: /Users/wei/nltk_data
+
+
+3.the issue of using method of nltk.word_tokenize(sentence)
+split the sentence in every single word. This is a problem , because keyword
+might be more than one word,resulting in the failure of extracting the key words
+which are more than one word.
+
+
+4. bath pdf_path issue
+glob module : finds all the pathnames matching a specific pattern according the rules used by unix shell
+{}.format(a)   :replace {} by "a"

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$USER_HOME$/Google Drive/Colab Notebooks/e2e-entity-typing-master/.idea/e2e-entity-typing-master.iml" filepath="$USER_HOME$/Google Drive/Colab Notebooks/e2e-entity-typing-master/.idea/e2e-entity-typing-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../pdfs_keywords_extraction-master/.idea/keywords-extraction.iml" filepath="$PROJECT_DIR$/../pdfs_keywords_extraction-master/.idea/keywords-extraction.iml" />
+    </modules>
+  </component>
+</project>
