@@ -44,16 +44,28 @@ def work_with_pdfs(pdfs):
 
 def extract(keylist,pdfs_tokens):
     extract=[]
-    blocks=pdfs_tokens[2:len(pdfs_tokens):3]
-    for k, key in enumerate(keylist):
-        kkey=' '.join(key)
-        size=len(key)
-        # print(kkey,size)
-        for i, block in enumerate(blocks):
-            for j, token in enumerate(block):
-                ttoken=' '.join(block[j:j+size])
-                if ttoken==kkey:
-                    extract.append(ttoken)
+
+    for index,item in enumerate(pdfs_tokens):
+        if index%3==0:
+            page_no=item+1
+            # print(page_no)
+        elif index%3==1:
+            paragraph_no=item+1
+            # print(paragraph_no)
+        else:
+            blocks=item
+            for k, key in enumerate(keylist):
+                kkey=' '.join(key)
+                size=len(key)
+                for i, token in enumerate(blocks):
+                    ttoken=' '.join(blocks[i:i+size])
+                    if ttoken==kkey:
+                        extract.append(ttoken)
+                        extract.append(page_no)
+                        extract.append(paragraph_no)
+                        extract.append(i)
+
+
     print(extract)
     return(extract)
 
@@ -65,9 +77,9 @@ if __name__=='__main__':
     pdfs_path=glob.glob("./data/datasets/*.pdf")
 
     keylist=work_with_txt(txt_path)
-    pdfs_list=work_with_pdfs(pdfs_path)
+    paragraph_info=work_with_pdfs(pdfs_path)
 
-    extract(keylist,pdfs_list)
+    extract=extract(keylist,paragraph_info)
 
 
 
