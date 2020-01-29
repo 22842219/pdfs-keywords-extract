@@ -3,7 +3,8 @@ import fitz
 import glob
 import sys, time, re
 import nltk
-import numpy
+import numpy as np
+from sklearn.manifold import TSNE
 
 
 def work_with_txt(txt_path):
@@ -80,6 +81,13 @@ if __name__=='__main__':
     paragraph_info=work_with_pdfs(pdfs_path)
 
     extract=extract(keylist,paragraph_info)
+
+    # X=np.array(extract)
+    # X_embedded=TSNE(n_components=2).fit_transform(X)
+    # print(X_embedded.shape)
+
+
+
 
 
 
